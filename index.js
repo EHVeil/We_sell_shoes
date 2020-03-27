@@ -8,6 +8,13 @@ const testimonial1 = document.querySelector('.testimonial1');
 const testimonial2 = document.querySelector('.testimonial2');
 const testimonial3 = document.querySelector('.testimonial3')
 
+//declare default vars
+const popUp = document.getElementById('pop-up');
+const popUpLayer = document.getElementById('pop-up-layer');
+const closeModal = document.getElementById('close-pop-up');
+
+//nav-bar button
+const subBtn = document.getElementById('sub-btn');
 //testimonial parent container
 const tests = document.querySelector('.tests');
 
@@ -119,3 +126,23 @@ if (panel.style.maxHeight){
   //panel is closed
   panel.style.maxHeight = panel.scrollHeight + "px"; //add this line
 }
+
+//navbar button click makes the popup appear
+subBtn.addEventListener("click", () => {
+  popUpLayer.style.display = 'flex';
+})
+
+//close model click makes the popup disappear
+closeModal.addEventListener("click", function() {
+  popUpLayer.style.display = 'none';
+})
+
+let popUpSeconds = 40;
+
+//trigger popup after seconds variable
+let popUpFun = window.setInterval(function() {
+  popUpLayer.style.display = 'flex';
+
+  window.clearInterval(popUpFun);
+
+}, popUpSeconds * 1000);
